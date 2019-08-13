@@ -1,0 +1,18 @@
+<?xml version="1.0"?>
+<layout version="0.1.0">
+    <default>	
+		
+    </default>
+	
+	<cms_index_index>
+	
+		<reference name="head">	
+			<action method="addItem"><type>skin_js</type><name>banner/js/jquery.min.js</name><params/></action>	
+			<action method="addItem"><type>skin_js</type><name>banner/js/jquery.bxslider.min.js</name><params/></action>			
+			<action method="addItem"><type>skin_css</type><name>banner/css/jquery.bxslider.css</name><params/></action>
+		</reference>
+		<reference name="content">
+				<block type="banner/banner" name="banner" before="-" template="banner/banner.phtml" />
+		</reference>
+	</cms_index_index>
+</layout> 

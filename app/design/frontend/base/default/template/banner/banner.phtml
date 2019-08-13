@@ -1,0 +1,58 @@
+<?php $mediaUrl = Mage::getBaseUrl(Mage_Core_Model_Store::URL_TYPE_MEDIA).'chandanbanner/'; ?>
+<?php $collection = Mage::getModel('banner/banner')->getCollection();?>
+<?php 
+$bannerstatus = Mage::getStoreConfig('chandan/chandan_group/chandan_select',Mage::app()->getStore());
+$titlestyle=Mage::getStoreConfig('chandan/chandan_group/chandan_title_style',Mage::app()->getStore());
+$contentstyle=Mage::getStoreConfig('chandan/chandan_group/chandan_content_style',Mage::app()->getStore());
+$anchortitle=Mage::getStoreConfig('chandan/chandan_group/chandan_btn_text',Mage::app()->getStore());
+$anchorstyle=Mage::getStoreConfig('chandan/chandan_group/chandan_btn_style',Mage::app()->getStore());
+
+if(!empty($anchortitle)) {
+	$anchortitle=$anchortitle;
+} else {
+	$anchortitle='Buy Now';	
+}
+
+
+?>
+<?php if($bannerstatus == 1) { ?>
+	<div class="slider-wrap">
+		<ul class="bxslider">
+		<?php foreach ($collection as $item) { ?>	
+			<?php 
+			$link		=  	$item->getLink();
+			$image		= 	$item->getFilename();
+			$title		= 	$item->getTitle();
+			$content	= 	$item->getContent();
+			$buynow		= 	$item->getBuynow();
+			?>	
+			<li class="goigi_li">
+				<?php if($buynow == 0) { ?>
+					<a href="<?php echo $link; ?>" target="_blank" class="link_anchor">
+				<?php } ?>
+						<img src="<?php echo $mediaUrl.$image;?>" border="0" alt="" title="<?php echo $title; ?>" class="img-responsive"  />
+				<?php if($buynow == 0) { ?>
+					</a>			
+				<?php } ?>
+				<div class="bx-caption">
+					<h1 style="<?php echo $titlestyle; ?>" class="goigi_banner_title">
+						<?php echo $title;?>
+					</h1>
+					<h2 style="<?php echo $contentstyle; ?>" class="goigi_content">
+						<?php echo $content;?>
+					</h2>
+					<?php if($buynow == 1) { ?>
+						<a href="<?php echo $link; ?>" style="<?php echo $anchorstyle; ?>" class="buy_now_goigi"><?php echo $anchortitle; ?> </a> 
+					<?php } ?>
+				</div>						
+			</li>
+		<?php } ?>	
+		</ul>
+	</div>
+
+	<script>
+		document.addEventListener("DOMContentLoaded", function() {
+		  jQuery('.bxslider').bxSlider();	
+		});	
+	</script>
+<?php } ?>
