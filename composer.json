@@ -1,16 +1,19 @@
 {
-    "name": "OpenMageModuleFostering/Banner_slider",
+    "name": "OpenMageModuleFostering\/Banner_slider",
     "type": "magento-module",
     "license": "OSL",
     "homepage": "",
     "description": "Banner slider is an banner slider extension for Magneto that enables you to upload image and show on homepage.",
     "authors": [
-    {
-        "name": "Chandan Kumar Singh",
-        "email": "chandankumar8050@gmail.com"
-    }
-],
+        {
+            "name": "Chandan Kumar Singh",
+            "email": "chandankumar8050@gmail.com"
+        }
+    ],
     "suggest": {
-        "magento-hackathon/magento-composer-installer": "*"
-    }
+        "magento-hackathon\/magento-composer-installer": "*"
+    },
+    "keywords": [
+        "openmage-module"
+    ]
 }
