@@ -1,3 +1,5 @@
+
+
 ## Original Package Description
 
 Banner slider is an banner slider extension for Magneto that enables you to upload image and show on homepage.
